@@ -1,0 +1,122 @@
+.container {
+    text-align: center;
+    width: 700px;
+    min-height: 700px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: .5rem .5rem 20px rgba(0, 0, 0, .2);
+}
+
+.titulo {
+    text-align: center;
+    color: #2e2e2e;
+    border-bottom: 1px solid #2e2e2e;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.update form {
+    font-size: 20px;
+    color: #FF6580;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+.update form p {
+    margin-bottom: 20px;
+}
+
+.update .form-control {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+}
+
+.update input,
+.update textarea,
+.update select {
+    color: #1f1f1f;
+}
+
+.update .students {
+    align-items: center;
+    padding: 8px;
+    color: #1f1f1f;
+    border: 1px solid #ccc; 
+    border-radius: 3px;
+}
+
+/* Estilos para cada checkbox */
+.students label {
+    margin-right: 10px;
+    margin-bottom: 5px;
+    cursor: pointer;
+}
+
+.students input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    border: 2px solid #555;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.students input[type="checkbox"]:checked {
+    background-color: #8469c6;
+}
+
+
+.update {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.container .button-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #FF6580;
+    color: #fff;
+    text-decoration: none;
+    border-radius: .5rem;
+    box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.404);
+    border: none;
+    font-size: 16px;
+}
+
+.container .button-back:hover {
+    background-color: #ff4063;
+}
+
+.container .button-save {
+    margin-left: 1rem;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #8469c6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: .5rem;
+    box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.404);
+    border: none;
+    font-size: 16px;
+}
+
+.container .button-save:hover {
+    background-color: #6746bb;
+}
+
+.scrollable-select {
+    max-height: 200px;
+    overflow-y: auto;
+}

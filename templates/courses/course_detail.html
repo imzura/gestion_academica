@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del curso</title>
+    <link rel="stylesheet" href="{% static 'css/style-detail.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="titulo"><i class="fa fa-list mx-2" style="color: #FF6580; border-color: #FF6580;"></i>Detalles del curso</h3>
+        <!-- Aquí es donde se insertará dinámicamente la información de los cursos -->
+        <div class="course">
+            <h2 class="subtitulo"><i class="fa-solid fa-tags mx-1" style="color: #8469c6; border-color: #8469c6;"></i>{{ courses.name }}</h2>
+            <p>{{ courses.description }}</p>
+            <p><i class="fa-regular fa-calendar-days mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Fecha de inicio:</b><br> {{ courses.start_date }}</p>
+            <p><i class="fa-regular fa-calendar-days mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Fecha final:</b><br> {{ courses.ending_date }}</p>
+            <p><i class="fa-solid fa-square-check mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Estado:</b><br> {{ courses.status|yesno:"Activo,Inactivo" }}</p>
+            <p><i class="fa fa-users mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Estudiantes:</b><br>
+                {% for student in courses.student.all %}
+                {{ student.name }} {{student.last_name}}<br>
+                {% empty %}
+                No hay estudiantes inscritos.
+                {% endfor %}
+            </p>
+        </div>
+        <a href="{% url 'courses' %}" class="button-back"><i class="fa fa-layer-group mx-1"></i>Lista de Cursos</a>
+        <a href="{% url 'update_course' courses.id %}" class="button-update"><i class="fas fa-pen-to-square mx-1"></i>Editar</a>
+        <a href="{% url 'delete_course' courses.id %}" class="button-eraser"><i class="fas fa-trash-alt mx-1"></i>Eliminar</a>
+    </div>
+
+</body>
+
+</html>
+{% endblock %}

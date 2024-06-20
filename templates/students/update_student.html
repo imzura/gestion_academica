@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="{% static 'css/update-student.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="titulo"><i class="fa-solid fa-pen-to-square mx-1" style="color: #FF6580; border-color: #FF6580;"></i>Actualizar Estudiante</h3>
+        <!-- Aquí es donde se insertará dinámicamente la información de los cursos -->
+        <div class="update">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form-group">
+                    <label for="id_status">Estado:</label>
+                    <select name="status" id="id_status" class="form-control">
+                        <option value="true" {% if form.instance.status %}selected{% endif %}>Activo</option>
+                        <option value="false" {% if not form.instance.status %}selected{% endif %}>Inactivo</option>
+                    </select>
+                </div>
+        </div>
+        <div>
+            <a href="javascript:history.back()" class="button-back"><i class="fa fa-layer-group mx-1"></i>Detalles de
+                Estudiante</a>
+            <button type="submit" class="button-save"><i class="fa fa-floppy-disk mx-1"></i>Guardar Cambios</button>
+        </div>
+        </form>
+
+    </div>
+</body>
+
+</html>
+
+{% endblock %}

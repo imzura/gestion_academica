@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalles del estudiante</title>
+    <link rel="stylesheet" href="{% static 'css/style-detail.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="titulo"><i class="fa fa-list mx-2" style="color: #FF6580; border-color: #FF6580;"></i>Detalles del Estudiante</h3>
+        <!-- Aquí es donde se insertará dinámicamente la información de los cursos -->
+        <div class="course">
+            <p><i class="fa-solid fa-tags mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Nombre:</b><br> {{ students.name }}</p>
+            <p><i class="fa-solid fa-tags mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Apellido:</b><br> {{ students.last_name }}</p>
+            <p><i class="fa-regular fa-id-card mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Documento:</b><br> {{ students.document }}</p>
+            <p><i class="fa-regular fa-envelope mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Email:</b><br> {{ students.email }}</p>
+            <p><i class="fa-regular fa-square-check mx-1" style="color: #8469c6; border-color: #8469c6;"></i><b>Estado:</b><br> {{ students.status|yesno:"Activo,Inactivo" }}</p>
+        </div>
+        <a href="{% url 'students' %}" class="button-back"><i class="fa fa-layer-group mx-1"></i>Lista de estudiantes</a>
+        <a href="{% url 'update_student' students.id %}" class="button-update"><i class="fas fa-pen-to-square mx-1"></i>Editar</a>
+        <a href="{% url 'delete_student' students.id %}" class="button-eraser"><i class="fas fa-trash-alt mx-1"></i>Eliminar</a>
+    </div>
+</body>
+
+</html>
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/update.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="titulo"><i class="fa-solid fa-pen-to-square mx-1" style="color: #FF6580; border-color: #FF6580;"></i>Actualizar Curso</h3>
+        <!-- Aquí es donde se insertará dinámicamente la información de los cursos -->
+        <div class="update">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div class="form">
+                    <label for="id_status">Estado:</label>
+                    <select name="status" id="id_status" class="form-control">
+                        <option value="true" {% if form.instance.status %}selected{% endif %}>Activo</option>
+                        <option value="false" {% if not form.instance.status %}selected{% endif %}>Inactivo</option>
+                    </select>
+                </div>
+        </div>
+        <div>
+            <a href="javascript:history.back()" class="button-back"><i class="fa fa-layer-group mx-1"></i>Detalles de
+                Curso</a>
+            <button type="submit" class="button-save"><i class="fa fa-floppy-disk mx-1"></i>Guardar Cambios</button>
+        </div>
+        </form>
+    </div>
+    <script>
+        $(document).ready(function () {
+            // Detecta el número de opciones en el select
+            var optionsCount = $('input[type="checkbox"]').length;
+
+            // Si hay más de tres opciones, aplica el desplazamiento
+            if (optionsCount > 3) {
+                $('.students').addClass('scrollable-select');
+            }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>
+
+{% endblock %}

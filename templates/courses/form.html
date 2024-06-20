@@ -1,0 +1,21 @@
+{% for field in form %}
+<div class="mb-3">
+    <label for="" class="form-label">{{ field.label }}</label>
+    {% if field.name == 'student' %}
+    <select class="form-select form-select-lg" name="{{ field.name }}" id="{{ field.id_for_label }}" multiple>
+        {% for student in form.student.field.queryset %}
+        <option value="{{ student.id }}" {% if student.id in form.student.value %}selected{% endif %}>{{ student.name }}
+        </option>
+        {% endfor %}
+    </select>
+    {% else %}
+    <input type="{{ field.field.widget.input_type }}" class="form-control" name="{{ field.name }}"
+        id="{{ field.id_for_label }}" aria-describedby="helpId" placeholder="{{ field.field.widget.attrs.placeholder }}"
+        value="{{ field.value | default:'' }}" />
+    <small id="helpId" class="form-text text-muted">{{ field.errors }}</small>
+    {% endif %}
+</div>
+{% endfor %}
+
+
+

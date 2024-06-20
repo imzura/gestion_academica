@@ -1,0 +1,124 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    font-size: 18px;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    text-align: center;
+    width: 700px;
+    min-height: 300px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: .5rem .5rem 20px rgba(0, 0, 0, .2);
+}
+
+.titulo {
+    text-align: center;
+    color: #2e2e2e;
+    border-bottom: 1px solid #2e2e2e;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+}
+
+.course .subtitulo {
+    font-weight: bold;
+    border-color: #FF6580;
+}
+
+.course-list {
+    margin-top: 20px;
+}
+
+.course {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.course:last-child {
+    border-bottom: none;
+}
+
+.course h2 {
+    margin: 0;
+    font-size: 23px;
+    color: #FF6580;
+}
+
+.course p {
+    margin: 5px 0;
+    color: #000000;
+}
+
+.course b {
+    color: #FF6580;
+}
+
+
+.container .button-back {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #FF6580;
+    color: #fff;
+    text-decoration: none;
+    border-radius: .5rem;
+    box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.404);
+    border: none;
+    font-size: 16px;
+}
+
+
+.container .button-back:hover {
+    background-color: #ff4063;
+    
+}
+
+.container .button-update {
+    margin-left: 1rem;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #8469c6;
+    color: #fff;
+    text-decoration: none;
+    border-radius: .5rem;
+    box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.404);
+    border: none;
+    font-size: 16px; 
+}
+
+
+.container .button-update:hover {
+    background-color: #6746bb;
+    
+}
+
+.container .button-eraser {
+    margin-left: 1rem;
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 10px;
+    background-color: #ff4646;
+    color: #fff;
+    text-decoration: none;
+    border-radius: .5rem;
+    box-shadow: .2rem .2rem .5rem rgba(0, 0, 0, 0.404);
+    border: none;
+    font-size: 16px; 
+}
+
+
+.container .button-eraser:hover {
+    background-color: #d83434;
+    
+}
+
+.course-link .fas {
+    color: white;
+}

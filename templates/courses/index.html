@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Cursos</title>
+    <link rel="stylesheet" href="{% static 'css/style-index.css' %}">
+</head>
+
+<body>
+    <div class="container">
+        <h3 class="titulo"><i class="fa fa-calendar-days mx-2" style="color: #FF6580; border-color: #FF6580;"></i>Lista de Cursos</h3>
+        <div class="line">
+        <ul id="list">
+            {% for course in courses %}
+            <li><b><a href="{% url 'course_detail' course.id %}"><i class="fa-regular fa-calendar-days mx-1" style="color: #FF6580;"></i>{{ course.name }}</a></b></li>
+            {% endfor %}
+        </ul>
+        </div>
+        <!-- Modal trigger button -->
+        <button type="button" class="button-index" data-bs-toggle="modal" data-bs-target="#modalId"><i class="fa fa-file-lines mx-1"></i>
+            Registrar
+        </button>
+    </div>
+
+    <!-- Modal Body -->
+    <div class="modal fade" id="modalId" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" role="dialog"
+        aria-labelledby="modalTitleId" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitleId">
+                        Registro de Curso
+                    </h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form action="" method="post">
+                        {% csrf_token %}
+                        {% include 'courses/form.html'%}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="background-color: #6e6e6e; border-color: #818181">
+                        Cerrar
+                    </button>
+                    <button type="submit" class="btn btn-primary"
+                        style="background-color: #FF6580; border-color: #FF6580">Enviar</button>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% if messages %}
+    {% for message in messages %}
+    <script>
+        Swal.fire({
+            title: "{{message.tags}}",
+            text: "{{message}}",
+            icon: "{{message.tags}}"
+        });
+    </script>
+</body>
+
+</html>
+{% endfor %}
+{% endif %}
+
+{% endblock %}
